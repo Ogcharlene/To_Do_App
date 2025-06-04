@@ -30,12 +30,7 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with('success', 'Task create with success.'); //Redirection vers le GetAllTasks (index)
     }
 
-    public function show(string $id)
-    {
-        //
-    }
-
-    public function edit(string $id) //Afficher formulaire pour modifier une tâche déjà existante 
+    public function edit(Task $task) //Afficher formulaire pour modifier une tâche déjà existante 
     {
         return view('tasks.edit', compact ('tasks'));
     }
@@ -43,7 +38,7 @@ class TaskController extends Controller
     public function update(Request $request, Task $task)
     {
         $request->validate([ 
-            'title' => 'nullable|string|max:300',
+            'title' => 'required|string|max:300',
             'description' => 'nullable|string',
         ]);
 
