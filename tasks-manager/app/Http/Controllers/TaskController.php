@@ -32,7 +32,7 @@ class TaskController extends Controller
 
     public function edit(Task $task) //Afficher formulaire pour modifier une tâche déjà existante 
     {
-        return view('tasks.edit', compact ('tasks'));
+        return view('tasks.edit', compact ('task'));
     }
 
     public function update(Request $request, Task $task)
